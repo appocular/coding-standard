@@ -1,0 +1,16 @@
+{
+    "name": "appocular/coding-standard",
+    "description": "Appocular PHP coding standard, PHP Code Sniffer rules.",
+	"keywords": ["coding standard", "cs", "coding", "standard", "ruleset", "phpcs", "PHPCodeSniffer", "CodeSniffer", "sniffer"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "slevomat/coding-standard": "^5.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Appocular\\CodingStandard\\": "AppocularCodingStandard"
+        }
+    }
+}

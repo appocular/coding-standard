@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="AppocularCodingStandard">
+    <rule ref="PSR12"/>
+    <config name="installed_paths" value="../../slevomat/coding-standard"/>
+    <rule ref="SlevomatCodingStandard">
+      <!-- This rule seems to prohibit import of anything not
+           whitelisted. That's useless. -->
+      <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified"/>
+      <!-- Slevomat and PSR12 disagree on the exact form of
+           declare(strict_types=1), so we go with PSR12. -->
+      <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectWhitespaceBetweenOpenTagAndDeclare"/>
+      <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat"/>
+      <!-- Slevomat thinks there should be an empty line at the
+           beginning and the end of a class. PSR12 thinks there should
+           be no empty line at the end. Let PSR12 win, and take out
+           the empty line at the beginning for symmetry.-->
+      <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineAfterOpeningBrace"/>
+      <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineBeforeClosingBrace"/>
+      <!-- Again, Slevomat and PSR12 disagree on how many empty lines there should before used traits. -->
+      <exclude name="SlevomatCodingStandard.Classes.TraitUseSpacing.IncorrectLinesCountBeforeFirstUse"/>
+      <!-- Slevomat doesn't think there should be parenthesises in
+           "new test();", but PSR12 requires them. -->
+      <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses"/>
+      <!-- I'm no fan of Yoda coparisons. -->
+      <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison"/>
+      <!-- While requiring fully qualified exceptions in catch
+           statemens do make sense, being forced to use it in handler
+           classes that deals with multiple exception classes only
+           makes it less readable. -->
+      <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException"/>
+      <!-- Using Throwable instead of Exception is preferable, but
+           Lumen has methods that explicitly deal with the latter. -->
+      <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+      <properties>
+        <!-- Allow fully qualified global functions and constants.
+             This makes
+             SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions
+             usable. -->
+        <property name="allowFullyQualifiedGlobalFunctions" value="true"/>
+        <property name="allowFullyQualifiedGlobalConstants" value="true"/>
+      </properties>
+    </rule>
+</ruleset>
