@@ -47,4 +47,10 @@
         <property name="allowFullyQualifiedGlobalConstants" value="true"/>
       </properties>
     </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
+      <properties>
+        <!-- Require an empty (save for the *) line between @ elements. -->
+        <property name="linesCountBetweenDifferentAnnotationsTypes" value="1"/>
+      </properties>
+    </rule>
 </ruleset>
