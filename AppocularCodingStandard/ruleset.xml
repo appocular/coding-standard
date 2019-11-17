@@ -36,6 +36,16 @@
            the parent class/implemented interface, so let's allow
            them. -->
       <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment"/>
+      <!-- This is useless together with
+           SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator.RequiredShortTernaryOperator.
+           -->
+      <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator.DisallowedShortTernaryOperator"/>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
+      <properties>
+        <!-- Require multiline ternary operators when they exeed 80 characters. -->
+        <property name="lineLengthLimit" value="80"/>
+      </properties>
     </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
       <properties>
