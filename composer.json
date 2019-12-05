@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "slevomat/coding-standard": "^5.0",
+        "slevomat/coding-standard": "^6.0",
         "squizlabs/php_codesniffer": "^3.5"
     },
     "autoload": {
