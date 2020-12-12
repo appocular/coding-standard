@@ -26,4 +26,30 @@ jobs:
     - name: Run phpcs
       working-directory: differ
       run: vendor/bin/phpcs
-      
+
+  keeper:
+    name: Run against appocular/keeper
+    if: '!github.event.deleted'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: 7.3
+        tools: composer
+        coverage: none
+    - name: Clone keeper
+      run: |
+        git clone https://github.com/appocular/keeper.git
+    - name: Setup keeper to use HEAD coding-standard
+      working-directory: keeper
+      run: |
+        # Remove old repo entry, composer has issues with indexes.
+        composer config --unset repo.0
+        composer config repo.coding_standard '{"type": "path", "url": "../", "options": {"symlink": true}}'
+        composer require appocular/coding-standard:@dev
+    - name: Run phpcs
+      working-directory: keeper
+      run: vendor/bin/phpcs
+
