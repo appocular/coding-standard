@@ -1,0 +1,29 @@
+on: pull_request
+name: Run test runs
+jobs:
+  differ:
+    name: Run against appocular/differ
+    if: '!github.event.deleted'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: 7.3
+        tools: composer
+        coverage: none
+    - name: Clone differ
+      run: |
+        git clone https://github.com/appocular/differ.git
+    - name: Setup differ to use HEAD coding-standard
+      working-directory: differ
+      run: |
+        # Remove old repo entry, composer has issues with indexes.
+        composer config --unset repo.1
+        composer config repo.coding_standard '{"type": "path", "url": "../", "options": {"symlink": true}}'
+        composer require appocular/coding-standard:@dev
+    - name: Run phpcs
+      working-directory: differ
+      run: vendor/bin/phpcs
+      
