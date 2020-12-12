@@ -22,7 +22,7 @@ jobs:
         # Remove old repo entry, composer has issues with indexes.
         composer config --unset repo.1
         composer config repo.coding_standard '{"type": "path", "url": "../", "options": {"symlink": true}}'
-        composer require appocular/coding-standard:@dev
+        composer require appocular/coding-standard:@dev --with-dependencies --no-progress --no-interaction
     - name: Run phpcs
       working-directory: assessor
       run: vendor/bin/phpcs
@@ -48,7 +48,7 @@ jobs:
         # Remove old repo entry, composer has issues with indexes.
         composer config --unset repo.1
         composer config repo.coding_standard '{"type": "path", "url": "../", "options": {"symlink": true}}'
-        composer require appocular/coding-standard:@dev
+        composer require appocular/coding-standard:@dev --with-dependencies --no-progress --no-interaction
     - name: Run phpcs
       working-directory: differ
       run: vendor/bin/phpcs
@@ -74,7 +74,7 @@ jobs:
         # Remove old repo entry, composer has issues with indexes.
         composer config --unset repo.0
         composer config repo.coding_standard '{"type": "path", "url": "../", "options": {"symlink": true}}'
-        composer require appocular/coding-standard:@dev
+        composer require appocular/coding-standard:@dev --with-dependencies --no-progress --no-interaction
     - name: Run phpcs
       working-directory: keeper
       run: vendor/bin/phpcs
