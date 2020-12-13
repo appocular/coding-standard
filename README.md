@@ -6,7 +6,7 @@ Standard](https://github.com/slevomat/coding-standard).
 
 It incorporates PSR12 unmodified, and most of Slevomat, disabling
 Slevomat rules where they conflict with PSR12. Some other Slevomat
-rules have been disabled, see [the
+rules have been disabled, see [the changelog](CHANGELOG.md) or [the
 ruleset.xml](AppocularCodingStandard/ruleset.xml) for details.
 
 ## Installation
