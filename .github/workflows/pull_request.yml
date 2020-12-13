@@ -71,8 +71,6 @@ jobs:
     - name: Setup keeper to use HEAD coding-standard
       working-directory: keeper
       run: |
-        # Remove old repo entry, composer has issues with indexes.
-        composer config --unset repo.0
         composer config repo.coding_standard '{"type": "path", "url": "../", "options": {"symlink": true}}'
         composer require appocular/coding-standard:@dev --with-dependencies --no-progress --no-interaction
     - name: Run phpcs
