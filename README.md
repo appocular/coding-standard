@@ -11,19 +11,6 @@ ruleset.xml](AppocularCodingStandard/ruleset.xml) for details.
 
 ## Installation
 
-Add a repository to your `composer.json`:
-
-``` yaml
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/appocular/coding-standard"
-        }
-    ]
-```
-
-And require the package:
-
 ``` shell
 composer require --dev appocular/coding-standard
 ```

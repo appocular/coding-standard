@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Use dealerdirect/phpcodesniffer-composer-installer to ease
   installation.
+- Submit to packagist for even easier installation.
 
 ## [1.0.3] - 2019-11-17
 ### Changed
