@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   repositories.
 - This changelog.
 
+### Changed
+- Use dealerdirect/phpcodesniffer-composer-installer to ease
+  installation.
+
 ## [1.0.3] - 2019-11-17
 ### Changed
 - Slevomat has both rules forbidding ternary operator, and decide

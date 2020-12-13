@@ -40,16 +40,15 @@ Example `.phpcs.xml`:
     <file>./database</file>
     <file>./routes</file>
     <file>./tests</file>
-    <config name="installed_paths" value="../../appocular/coding-standard"/>
     <rule ref="AppocularCodingStandard"/>
     <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
       <properties>
         <!-- Tell Slevomat the root directories of our namespaces, so
              it can check if the filepath is correct. -->
-	<property name="rootNamespaces" type="array">
-	  <element key="app" value="Appocular\Assessor"/>
-	  <element key="tests" value="Appocular\Assessor"/>
-	</property>
+      <property name="rootNamespaces" type="array">
+        <element key="app" value="Appocular\Assessor"/>
+        <element key="tests" value="Appocular\Assessor"/>
+      </property>
       </properties>
     </rule>
 </ruleset>
