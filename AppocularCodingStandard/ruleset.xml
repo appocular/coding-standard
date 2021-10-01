@@ -42,6 +42,11 @@
       <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator.DisallowedShortTernaryOperator"/>
       <!-- Don't know why increment and decrement operators should be outlawed. -->
       <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators.DisallowedPostIncrementOperator"/>
+      <!-- Do not place limits on function length as a part of the
+           coding standard -->
+      <exclude name="SlevomatCodingStandard.Functions.FunctionLength"/>
+      <!-- Allow trailing commas in multiline function calls. It provides a cleaner diff. -->
+      <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall"/>
     </rule>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
       <properties>
