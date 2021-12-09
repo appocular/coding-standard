@@ -38,7 +38,7 @@
       <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment"/>
       <!-- This is useless together with
            SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator.RequiredShortTernaryOperator.
-           -->
+      -->
       <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator.DisallowedShortTernaryOperator"/>
       <!-- Don't know why increment and decrement operators should be outlawed. -->
       <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators.DisallowedPostIncrementOperator"/>
@@ -53,16 +53,17 @@
       <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength" />
       <!-- This conflicts with
            SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion. 
-           -->
+      -->
       <exclude name="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion.DisallowedConstructorPropertyPromotion" />
       <!-- Conflicts with
            SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma
-           -->
+      -->
       <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
     </rule>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
       <properties>
-        <!-- Require multiline ternary operators when they exeed 80 characters. -->
+        <!-- Require multiline ternary operators when they exeed 80
+             characters. -->
         <property name="lineLengthLimit" value="80"/>
       </properties>
     </rule>
