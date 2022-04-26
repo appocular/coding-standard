@@ -59,6 +59,11 @@
            SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma
       -->
       <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
+      <!-- Allow use of empty(). Empty gets a bad wrap for not being
+           type strong, but it eliminates the need for multiple checks
+           when dealing with data from JSON for instance.
+      -->
+      <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty.DisallowedEmpty" />
     </rule>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
       <properties>
