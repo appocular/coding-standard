@@ -88,4 +88,10 @@
         <property name="linesCountBetweenDifferentAnnotationsTypes" value="1"/>
       </properties>
     </rule>
+    <rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+      <properties>
+        <!-- Don't require an empty line after use when it's last in class. Else it clashes with PSR12. -->
+        <property name="linesCountAfterLastUseWhenLastInClass" value="0"/>
+      </properties>
+    </rule>
 </ruleset>
