@@ -28,6 +28,9 @@
            classes that deals with multiple exception classes only
            makes it less readable. -->
       <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException"/>
+      <!-- These conflicts with each other per default. We'll not require either. -->
+      <exclude name="SlevomatCodingStandard.Numbers.DisallowNumericLiteralSeparator"/>
+      <exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator"/>
       <!-- Using Throwable instead of Exception is preferable, but
            Lumen has methods that explicitly deal with the latter. -->
       <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>

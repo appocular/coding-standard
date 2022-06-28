@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Don't require an empty line after use if it's the last in class.
+- Remove requirement on number literals.
 
 ## [2.1.1] - 2022-04-26
 ### Changed
