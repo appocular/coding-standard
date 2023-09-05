@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Sort rules alphabetically.
 - Wrap comments at column 100.
+- Don't require multi-line arrays to be sorted alphabetically.
 
 ## [2.2.0] - 2023-09-05
 ### Changed

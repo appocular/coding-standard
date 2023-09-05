@@ -4,6 +4,8 @@
   <rule ref="PSR12" />
   <config name="installed_paths" value="../../slevomat/coding-standard" />
   <rule ref="SlevomatCodingStandard">
+    <!-- Sorting multi-line arrays alphabetically doesn't always make sense. -->
+    <exclude name="SlevomatCodingStandard.Arrays.AlphabeticallySortedByKeys.IncorrectKeyOrder"/>
     <!-- This conflicts with
          SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion.
       -->
