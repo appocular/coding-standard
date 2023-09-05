@@ -33,7 +33,7 @@
          the need for multiple checks when dealing with data from JSON for instance.
       -->
     <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty.DisallowedEmpty" />
-    <!-- Slevomat doesn't think there should be parenthesises in "new test();", but PSR12 requires
+    <!-- Slevomat doesn't think there should be parenthesises in "new Test();", but PSR12 requires
          them. -->
     <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses" />
     <!-- I'm no fan of Yoda coparisons. -->
@@ -59,7 +59,7 @@
     <!-- Do not place limits on function length as a part of the coding standard. While short
          functions are preferable, placing an arbitrary limit on length isn't helping. -->
     <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength" />
-    <!-- While requiring fully qualified exceptions in catch statemens do make sense, being forced
+    <!-- While requiring fully qualified exceptions in catch statements do make sense, being forced
          to use it in handler classes that deals with multiple exception classes only makes it less
          readable. -->
     <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException" />
@@ -84,7 +84,7 @@
   </rule>
   <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
     <properties>
-      <!-- Require multiline ternary operators when they exeed 80 characters. -->
+      <!-- Require multiline ternary operators when they exceed 80 characters. -->
       <property name="lineLengthLimit" value="80" />
     </properties>
   </rule>
