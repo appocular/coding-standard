@@ -1,104 +1,97 @@
 <?xml version="1.0"?>
+<!-- This file wraps comments at column 100 as the excludes already broke the 70 character rule.  -->
 <ruleset name="AppocularCodingStandard">
-    <rule ref="PSR12"/>
-    <config name="installed_paths" value="../../slevomat/coding-standard"/>
-    <rule ref="SlevomatCodingStandard">
-      <!-- This rule seems to prohibit import of anything not
-           whitelisted. That's useless. -->
-      <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified"/>
-      <!-- Slevomat and PSR12 disagree on the exact form of
-           declare(strict_types=1), so we go with PSR12. -->
-      <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectWhitespaceBetweenOpenTagAndDeclare"/>
-      <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat"/>
-      <!-- Slevomat thinks there should be an empty line at the
-           beginning and the end of a class. PSR12 thinks there should
-           be no empty line at the end. Let PSR12 win, and take out
-           the empty line at the beginning for symmetry.-->
-      <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineAfterOpeningBrace"/>
-      <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineBeforeClosingBrace"/>
-      <!-- Again, Slevomat and PSR12 disagree on how many empty lines there should before used traits. -->
-      <exclude name="SlevomatCodingStandard.Classes.TraitUseSpacing.IncorrectLinesCountBeforeFirstUse"/>
-      <!-- Slevomat doesn't think there should be parenthesises in
-           "new test();", but PSR12 requires them. -->
-      <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses"/>
-      <!-- I'm no fan of Yoda coparisons. -->
-      <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison"/>
-      <!-- While requiring fully qualified exceptions in catch
-           statemens do make sense, being forced to use it in handler
-           classes that deals with multiple exception classes only
-           makes it less readable. -->
-      <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException"/>
-      <!-- These conflicts with each other per default. We'll not require either. -->
-      <exclude name="SlevomatCodingStandard.Numbers.DisallowNumericLiteralSeparator"/>
-      <exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator"/>
-      <!-- Using Throwable instead of Exception is preferable, but
-           Lumen has methods that explicitly deal with the latter. -->
-      <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
-      <!-- Non-capturing catch has its uses. -->
-      <exclude name="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch.DisallowedNonCapturingCatch"/>
-      <!-- But so does working with the thrown exception. -->
-      <exclude name="SlevomatCodingStandard.Exceptions.RequireNonCapturingCatch.NonCapturingCatchRequired"/>
-      <!-- {@inheritdoc} might be useless, but it does serve as a hint
-           to the reader that there might be better documentation in
-           the parent class/implemented interface, so let's allow
-           them. -->
-      <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment"/>
-      <!-- This is useless together with
-           SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator.RequiredShortTernaryOperator.
+  <rule ref="PSR12" />
+  <config name="installed_paths" value="../../slevomat/coding-standard" />
+  <rule ref="SlevomatCodingStandard">
+    <!-- This conflicts with
+         SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion.
       -->
-      <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator.DisallowedShortTernaryOperator"/>
-      <!-- Don't know why increment and decrement operators should be outlawed. -->
-      <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators.DisallowedPostIncrementOperator"/>
-      <!-- Allow arrow functions. -->
-      <exclude name="SlevomatCodingStandard.Functions.DisallowArrowFunction"/>
-      <!-- Allow trailing commas in multiline function calls. It provides a cleaner diff. -->
-      <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall"/>
-      <!-- Do not place limits on function length as a part of the
-           coding standard. While short functions are preferable,
-           placing an abitary limit on length isn't helping. -->
-      <exclude name="SlevomatCodingStandard.Files.FunctionLength.FunctionLength" />
-      <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength" />
-      <!-- This conflicts with
-           SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion. 
+    <exclude name="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion.DisallowedConstructorPropertyPromotion" />
+    <!-- Slevomat thinks there should be an empty line at the beginning and the end of a class.
+         PSR12 thinks there should be no empty line at the end. Let PSR12 win, and take out the
+         empty line at the beginning for symmetry.-->
+    <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineAfterOpeningBrace" />
+    <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineBeforeClosingBrace" />
+    <!-- Again, Slevomat and PSR12 disagree on how many empty lines there should before used traits.
+         -->
+    <exclude name="SlevomatCodingStandard.Classes.TraitUseSpacing.IncorrectLinesCountBeforeFirstUse" />
+    <!-- {@inheritdoc} might be useless, but it does serve as a hint to the reader that there might
+         be better documentation in the parent class/implemented interface, so let's allow them. -->
+    <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment" />
+    <!-- This is useless together with
+         SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator.RequiredShortTernaryOperator.
+         -->
+    <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator.DisallowedShortTernaryOperator" />
+    <!-- Allow use of empty(). Empty gets a bad wrap for not being type strong, but it eliminates
+         the need for multiple checks when dealing with data from JSON for instance.
       -->
-      <exclude name="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion.DisallowedConstructorPropertyPromotion" />
-      <!-- Conflicts with
-           SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma
+    <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty.DisallowedEmpty" />
+    <!-- Slevomat doesn't think there should be parenthesises in "new test();", but PSR12 requires
+         them. -->
+    <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses" />
+    <!-- I'm no fan of Yoda coparisons. -->
+    <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison" />
+    <!-- Non-capturing catch has its uses. -->
+    <exclude name="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch.DisallowedNonCapturingCatch" />
+    <!-- Using Throwable instead of Exception is preferable, but Lumen has methods that explicitly
+         deal with the latter. -->
+    <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException" />
+    <!-- Requiring non-capturing catch doesn't make sense, working with the thrown exception can be
+         usefull. -->
+    <exclude name="SlevomatCodingStandard.Exceptions.RequireNonCapturingCatch.NonCapturingCatchRequired" />
+    <!-- Allow arrow functions. -->
+    <exclude name="SlevomatCodingStandard.Functions.DisallowArrowFunction" />
+    <!-- Allow trailing commas in multiline function calls. It provides a cleaner diff. -->
+    <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall" />
+    <!-- Conflicts with
+         SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma
       -->
-      <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
-      <!-- Allow use of empty(). Empty gets a bad wrap for not being
-           type strong, but it eliminates the need for multiple checks
-           when dealing with data from JSON for instance.
-      -->
-      <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty.DisallowedEmpty" />
-    </rule>
-    <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
-      <properties>
-        <!-- Require multiline ternary operators when they exeed 80
-             characters. -->
-        <property name="lineLengthLimit" value="80"/>
-      </properties>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
-      <properties>
-        <!-- Allow fully qualified global functions and constants.
-             This makes
-             SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions
-             usable. -->
-        <property name="allowFullyQualifiedGlobalFunctions" value="true"/>
-        <property name="allowFullyQualifiedGlobalConstants" value="true"/>
-      </properties>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
-      <properties>
-        <!-- Require an empty (save for the *) line between @ elements. -->
-        <property name="linesCountBetweenDifferentAnnotationsTypes" value="1"/>
-      </properties>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
-      <properties>
-        <!-- Don't require an empty line after use when it's last in class. Else it clashes with PSR12. -->
-        <property name="linesCountAfterLastUseWhenLastInClass" value="0"/>
-      </properties>
-    </rule>
+    <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
+    <!-- Do not place limits on function length as a part of the coding standard. While short
+         functions are preferable, placing an abitary limit on length isn't helping. -->
+    <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength" />
+    <!-- While requiring fully qualified exceptions in catch statemens do make sense, being forced
+         to use it in handler classes that deals with multiple exception classes only makes it less
+         readable. -->
+    <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException" />
+    <!-- This rule seems to prohibit import of anything not whitelisted. That's useless. -->    
+    <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified" />
+    <!-- These conflicts with each other per default. We'll not require either. -->
+    <exclude name="SlevomatCodingStandard.Numbers.DisallowNumericLiteralSeparator" />
+    <exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator" />
+    <!-- Don't know why increment and decrement operators should be outlawed. -->
+    <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators.DisallowedPostIncrementOperator" />
+    <!-- Slevomat and PSR12 disagree on the exact form of declare(strict_types=1), so we go with
+         PSR12. -->
+    <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat" />
+    <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectWhitespaceBetweenOpenTagAndDeclare" />
+  </rule>
+  <rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+    <properties>
+      <!-- Don't require an empty line after use when it's last in class. Else it clashes with
+           PSR12. -->
+      <property name="linesCountAfterLastUseWhenLastInClass" value="0" />
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
+    <properties>
+      <!-- Require multiline ternary operators when they exeed 80 characters. -->
+      <property name="lineLengthLimit" value="80" />
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
+    <properties>
+      <!-- Require an empty (save for the *) line between @ elements. -->
+      <property name="linesCountBetweenDifferentAnnotationsTypes" value="1" />
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+    <properties>
+      <!-- Allow fully qualified global functions and constants. This makes
+           SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions usable. -->
+      <property name="allowFullyQualifiedGlobalFunctions" value="true" />
+      <property name="allowFullyQualifiedGlobalConstants" value="true" />
+    </properties>
+  </rule>
 </ruleset>
