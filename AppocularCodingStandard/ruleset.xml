@@ -24,7 +24,7 @@
          be better documentation in the parent class/implemented interface, so let's allow them. -->
     <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment" />
     <!-- Complexity limits are arbitrary, varies by project. -->
-    <exclude name="SlevomatCodingStandard.Commenting.SlevomatCodingStandard.Complexity.Cognitive.ComplexityTooHigh" />
+    <exclude name="SlevomatCodingStandard.Complexity.Cognitive.ComplexityTooHigh" />
     <!-- This is useless together with
          SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator.RequiredShortTernaryOperator.
          -->
