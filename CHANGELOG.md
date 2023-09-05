@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Update slevomat/coding-standard to version 8.
+- Allow both capturing and non-capturing catch.
 
 ## [2.1.2] - 2022-08-01
 ### Changed

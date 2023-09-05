@@ -34,6 +34,10 @@
       <!-- Using Throwable instead of Exception is preferable, but
            Lumen has methods that explicitly deal with the latter. -->
       <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
+      <!-- Non-capturing catch has its uses. -->
+      <exclude name="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch.DisallowedNonCapturingCatch"/>
+      <!-- But so does working with the thrown exception. -->
+      <exclude name="SlevomatCodingStandard.Exceptions.RequireNonCapturingCatch.NonCapturingCatchRequired"/>
       <!-- {@inheritdoc} might be useless, but it does serve as a hint
            to the reader that there might be better documentation in
            the parent class/implemented interface, so let's allow
